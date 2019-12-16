@@ -37,5 +37,26 @@ namespace DbPeek
             var executeCommand = new ExecuteCommand(_connectionString);
             executeCommand.Execute(sql);
         }
+
+        public string DataRead(string table)
+        {
+            var sb = new StringBuilder();
+            var dr = new DataReader(_connectionString);
+            var listOfLists = dr.Read(table);
+
+            sb.Append("<table border=\"1\">");
+            foreach (var list in listOfLists)
+            {
+                sb.Append("<tr>");
+                foreach (var record in list)
+                {
+                    sb.AppendFormat("<td>{0}</td>", record);
+                }
+                sb.Append("</tr>");
+            }
+            sb.Append("</table>");
+
+            return sb.ToString();
+        }
     }
 }

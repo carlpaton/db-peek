@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Interface\ITablesRepository.cs" />
     <Compile Include="Models\TablesModels.cs" />
+    <Compile Include="MySQL\DataReader.cs" />
     <Compile Include="MySQL\ExecuteCommand.cs" />
     <Compile Include="MySQL\MySQLContext.cs" />
     <Compile Include="MySQL\TablesRepository.cs" />

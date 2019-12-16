@@ -48,7 +48,20 @@ Then in your code use as follows:
 using DbPeek;
 
 var connectionString = ConfigurationManager.ConnectionStrings["ConnMySql"].ConnectionString;
-
 new Peek(connectionString).ExecuteCommand(commandToRun.InnerText);
 ```
 
+### Data Reader
+
+Returns an object of data as `List<List<object>>` where the inner list is the data of the row.
+
+```c#
+using DbPeek;
+
+var connectionString = ConfigurationManager.ConnectionStrings["ConnMySql"].ConnectionString;
+var table = tableName.Text;
+
+litTableData.Text = new Peek(connectionString).DataRead(table);
+```
+
+All the hacks <3
