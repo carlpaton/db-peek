@@ -32,6 +32,15 @@ namespace DbPeek.MySQL
             }
         }
 
+        public void Execute(string sql)
+        {
+            using (_dbConn)
+            {
+                Open();
+                _dbConn.Execute(sql);
+            }
+        }
+
         private void Open()
         {
             if (_dbConn.State == ConnectionState.Closed)
