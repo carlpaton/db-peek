@@ -1,0 +1,10 @@
+obj
+packages
+bin
+.vs
+modac/docs
+modac/backup
+modac/bin
+modac/tmp
+modac/logs
+published
