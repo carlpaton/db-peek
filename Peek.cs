@@ -4,6 +4,11 @@ using System.Text;
 
 namespace DbPeek
 {
+    /// <summary>
+    /// Presentation layer, thats a pattern right? 
+    /// 
+    /// Meh, I like `Peek` :D
+    /// </summary>
     public class Peek
     {
         private readonly ITablesRepository _tablesRepository;
