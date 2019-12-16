@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IDataReader.cs" />
+    <Compile Include="Interface\IExecuteCommand.cs" />
     <Compile Include="Interface\ITablesRepository.cs" />
     <Compile Include="Models\TablesModels.cs" />
     <Compile Include="MySQL\DataReader.cs" />

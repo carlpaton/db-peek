@@ -1,9 +1,10 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DbPeek.Interface;
+using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 
 namespace DbPeek.MySQL
 {
-    public class DataReader
+    public class DataReader : IDataReader
     {
         private readonly string _connectionString;
 

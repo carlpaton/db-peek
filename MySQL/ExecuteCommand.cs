@@ -1,6 +1,8 @@
-﻿namespace DbPeek.MySQL
+﻿using DbPeek.Interface;
+
+namespace DbPeek.MySQL
 {
-    class ExecuteCommand : MySQLContext
+    class ExecuteCommand : MySQLContext, IExecuteCommand
     {
         public ExecuteCommand(string connectionString) : base(connectionString)
         {

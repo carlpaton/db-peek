@@ -6,13 +6,15 @@ namespace DbPeek
 {
     public class Peek
     {
-        private ITablesRepository _tablesRepository;
-        private readonly string _connectionString;
+        private readonly ITablesRepository _tablesRepository;
+        private readonly IExecuteCommand _executeCommand;
+        private readonly IDataReader _dataReader;
 
         public Peek(string connectionString)
         {
             _tablesRepository = new TablesRepository(connectionString);
-            _connectionString = connectionString;
+            _executeCommand = new ExecuteCommand(connectionString);
+            _dataReader = new DataReader(connectionString);
         }
 
         public string TableNames(string tableSchema) 
@@ -34,15 +36,13 @@ namespace DbPeek
 
         public void ExecuteCommand(string sql)
         {
-            var executeCommand = new ExecuteCommand(_connectionString);
-            executeCommand.Execute(sql);
+            _executeCommand.Execute(sql);
         }
 
         public string DataRead(string table)
         {
             var sb = new StringBuilder();
-            var dr = new DataReader(_connectionString);
-            var listOfLists = dr.Read(table);
+            var listOfLists = _dataReader.Read(table);
 
             sb.Append("<table border=\"1\">");
             foreach (var list in listOfLists)
